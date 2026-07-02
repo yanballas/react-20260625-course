@@ -1,12 +1,10 @@
 import type { RestaurantModel, MenuItem, Review } from "./types";
 
-type RestaurantProps = { props: RestaurantModel };
-type MenuProps = { props: MenuItem[] };
-type ReviewProps = { props: Review[] };
+type RestaurantProps = { restaurant: RestaurantModel };
+type MenuProps = { menu: MenuItem[] };
+type ReviewProps = { review: Review[] };
 
-function Menu({ props }: MenuProps) {
-  const menu = props;
-
+function Menu({ menu }: MenuProps) {
   return (
     <ul>
       {menu.map((item: MenuItem) => (
@@ -24,9 +22,7 @@ function Menu({ props }: MenuProps) {
   );
 }
 
-function Review({ props }: ReviewProps) {
-  const review = props;
-
+function Review({ review }: ReviewProps) {
   return (
     <ol>
       {review.map((item: Review) => (
@@ -42,16 +38,16 @@ function Review({ props }: ReviewProps) {
   );
 }
 
-function Restaurant({ props }: RestaurantProps) {
-  const { name, menu, reviews } = props;
+function Restaurant({ restaurant }: RestaurantProps) {
+  const { name, menu, reviews } = restaurant;
 
   return (
     <div>
       <h2>{name}</h2>
       <h3>Menu</h3>
-      <Menu props={menu} />
+      <Menu menu={menu} />
       <h3>Reviews</h3>
-      <Review props={reviews} />
+      <Review review={reviews} />
     </div>
   );
 }

@@ -8,7 +8,7 @@ function App() {
   return (
     <section style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}>
       {restaurants.map((restaurant: RestaurantModel) => (
-        <Restaurant key={restaurant.id} props={restaurant} />
+        <Restaurant key={restaurant.id} restaurant={restaurant} />
       ))}
     </section>
   );
