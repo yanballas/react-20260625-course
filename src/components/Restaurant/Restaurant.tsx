@@ -1,12 +1,21 @@
 import Menu from "../Menu/Menu";
 import Review from "../Review/Review";
+import { restaurants } from "../../mock/mock";
 
-import type { RestaurantModel } from "../types";
+interface RestaurantProps {
+  id: string;
+}
 
-type RestaurantProps = { restaurant: RestaurantModel };
+function Restaurant({ id }: RestaurantProps) {
+  const currentRestaurant = restaurants.find(
+    (restaurant) => restaurant.id === id,
+  );
 
-function Restaurant({ restaurant }: RestaurantProps) {
-  const { name, menu, reviews } = restaurant;
+  if (!currentRestaurant) {
+    return null;
+  }
+
+  const { name, menu, reviews } = currentRestaurant;
 
   if (!name) {
     return null;
