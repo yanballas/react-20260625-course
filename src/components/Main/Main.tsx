@@ -8,17 +8,13 @@ import type { RestaurantModel } from "../types";
 export default function Main() {
   const [restaurantId, setRestaurantId] = useState(restaurants[0].id);
 
-  const handleRestaurantClick = (id: string) => {
-    setRestaurantId(id);
-  };
-
   return (
     <main>
       <section style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
         {restaurants.map((restaurant: RestaurantModel) => (
           <button
             key={restaurant.id}
-            onClick={() => handleRestaurantClick(restaurant.id)}
+            onClick={() => setRestaurantId(restaurant.id)}
           >
             {restaurant.name}
           </button>

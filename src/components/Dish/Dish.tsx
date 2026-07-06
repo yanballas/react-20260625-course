@@ -9,6 +9,10 @@ export default function Dish({ dish }: DishProps) {
   const [countDish, setCountDish] = useState(0);
 
   const addDish = () => {
+    if (countDish === 5) {
+      return;
+    }
+
     setCountDish(countDish + 1);
   };
 
