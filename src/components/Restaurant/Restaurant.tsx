@@ -1,45 +1,25 @@
-import type { RestaurantModel, MenuItem, Review } from "./types";
+import Menu from "../Menu/Menu";
+import Review from "../Review/Review";
+import { restaurants } from "../../mock/mock";
 
-type RestaurantProps = { restaurant: RestaurantModel };
-type MenuProps = { menu: MenuItem[] };
-type ReviewProps = { review: Review[] };
-
-function Menu({ menu }: MenuProps) {
-  return (
-    <ul>
-      {menu.map((item: MenuItem) => (
-        <li key={item.id} style={{ marginBottom: "10px" }}>
-          <span>{item.name}</span>
-          <span>{item.price}</span>
-          <ul>
-            {item.ingredients.map((ingredient: string) => (
-              <li key={ingredient}>{ingredient}</li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
-  );
+interface RestaurantProps {
+  id: string;
 }
 
-function Review({ review }: ReviewProps) {
-  return (
-    <ol>
-      {review.map((item: Review) => (
-        <li key={item.id} style={{ marginBottom: "10px" }}>
-          <ul>
-            <li>{item.user}</li>
-            <li>{item.text}</li>
-            <li>{item.rating}</li>
-          </ul>
-        </li>
-      ))}
-    </ol>
+function Restaurant({ id }: RestaurantProps) {
+  const currentRestaurant = restaurants.find(
+    (restaurant) => restaurant.id === id,
   );
-}
 
-function Restaurant({ restaurant }: RestaurantProps) {
-  const { name, menu, reviews } = restaurant;
+  if (!currentRestaurant) {
+    return null;
+  }
+
+  const { name, menu, reviews } = currentRestaurant;
+
+  if (!name) {
+    return null;
+  }
 
   return (
     <div>
@@ -47,7 +27,7 @@ function Restaurant({ restaurant }: RestaurantProps) {
       <h3>Menu</h3>
       <Menu menu={menu} />
       <h3>Reviews</h3>
-      <Review review={reviews} />
+      <Review reviews={reviews} />
     </div>
   );
 }

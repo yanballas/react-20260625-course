@@ -1,16 +1,14 @@
-import Restaurant from "./components/Restaurant/Restaurant";
-
-import type { RestaurantModel } from "./components/Restaurant/types";
-
-import { restaurants } from "./mock/mock";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Main from "./components/Main/Main";
 
 function App() {
   return (
-    <section style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)" }}>
-      {restaurants.map((restaurant: RestaurantModel) => (
-        <Restaurant key={restaurant.id} restaurant={restaurant} />
-      ))}
-    </section>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
