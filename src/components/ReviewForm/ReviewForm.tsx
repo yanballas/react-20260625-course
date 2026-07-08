@@ -1,3 +1,4 @@
+import Counter from "../Counter/Counter";
 import { EFormActionType } from "./types";
 import useForm from "./useForm";
 
@@ -16,28 +17,32 @@ export default function ReviewForm() {
       />
       <input
         type="text"
-        placeholder="Email"
-        value={state.email}
+        placeholder="Comment"
+        value={state.comment}
         onChange={(e) =>
-          dispatch({ type: EFormActionType.EEmail, payload: e.target.value })
+          dispatch({ type: EFormActionType.EComment, payload: e.target.value })
         }
       />
-      <input
-        type="number"
-        placeholder="Rating"
-        value={state.rating}
-        onChange={(e) =>
+      <Counter
+        count={state.rating}
+        onIncrement={() =>
+          dispatch({ type: EFormActionType.ERating, payload: state.rating + 1 })
+        }
+        onDecrement={() => {
+          if (state.rating === 0) {
+            return;
+          }
           dispatch({
             type: EFormActionType.ERating,
-            payload: Number(e.target.value),
-          })
-        }
+            payload: state.rating - 1,
+          });
+        }}
       />
       <button
         type="submit"
         onClick={(event) => {
           event.preventDefault();
-          if (!state.name || !state.email || state.rating === 0) {
+          if (!state.name || !state.comment || state.rating === 0) {
             return;
           }
           dispatch({ type: EFormActionType.ESend });

@@ -4,7 +4,7 @@ import { type FormAction, EFormActionType, type FormState } from "./types";
 
 const initialFormState: FormState = {
   name: "",
-  email: "",
+  comment: "",
   rating: 0,
 };
 
@@ -17,12 +17,12 @@ function reducer(state: FormState, action: FormAction): FormState {
 
       return { ...state, name: action.payload };
 
-    case EFormActionType.EEmail:
+    case EFormActionType.EComment:
       if (typeof action.payload !== "string") {
         return state;
       }
 
-      return { ...state, email: action.payload };
+      return { ...state, comment: action.payload };
 
     case EFormActionType.ERating:
       if (typeof action.payload !== "number") {

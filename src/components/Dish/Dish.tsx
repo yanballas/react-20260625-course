@@ -1,27 +1,31 @@
 import { useState } from "react";
 
+import Counter from "../Counter/Counter";
+
 import type { MenuItem } from "../types";
 
 type DishProps = { dish: MenuItem };
 
 export default function Dish({ dish }: DishProps) {
   const { id, name, price, ingredients } = dish;
-  const [countDish, setCountDish] = useState(0);
+  const dishLimit = 5;
+
+  const [count, setCount] = useState(0);
 
   const addDish = () => {
-    if (countDish === 5) {
+    if (dishLimit !== undefined && count === dishLimit) {
       return;
     }
 
-    setCountDish(countDish + 1);
+    setCount(count + 1);
   };
 
   const removeDish = () => {
-    if (countDish === 0) {
+    if (count === 0) {
       return;
     }
 
-    setCountDish(countDish - 1);
+    setCount(count - 1);
   };
 
   if (!name) {
@@ -36,11 +40,7 @@ export default function Dish({ dish }: DishProps) {
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>
-      <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-        <button onClick={addDish}>Add</button>
-        <span>Count: {countDish}</span>
-        <button onClick={removeDish}>Remove</button>
-      </div>
+      <Counter count={count} onIncrement={addDish} onDecrement={removeDish} />
     </li>
   );
 }

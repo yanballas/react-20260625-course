@@ -1,6 +1,6 @@
 export enum EFormActionType {
   EName = "name",
-  EEmail = "email",
+  EComment = "comment",
   ERating = "rating",
   ESend = "send",
   EClear = "clear",
@@ -8,7 +8,7 @@ export enum EFormActionType {
 
 export interface FormState {
   name: string;
-  email: string;
+  comment: string;
   rating: number;
 }
 
