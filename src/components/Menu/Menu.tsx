@@ -12,7 +12,7 @@ export default function Menu({ menu }: MenuProps) {
   return (
     <ul>
       {menu.map((menuItem: MenuItem) => (
-        <Dish dish={menuItem} />
+        <Dish key={menuItem.id} dish={menuItem} />
       ))}
     </ul>
   );
