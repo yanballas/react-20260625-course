@@ -1,5 +1,6 @@
 import Menu from "../Menu/Menu";
 import Review from "../Review/Review";
+import ReviewForm from "../ReviewForm/ReviewForm";
 import { restaurants } from "../../mock/mock";
 
 interface RestaurantProps {
@@ -28,6 +29,7 @@ function Restaurant({ id }: RestaurantProps) {
       <Menu menu={menu} />
       <h3>Reviews</h3>
       <Review reviews={reviews} />
+      <ReviewForm />
     </div>
   );
 }
