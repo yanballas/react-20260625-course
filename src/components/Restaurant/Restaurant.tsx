@@ -23,7 +23,7 @@ function Restaurant({ id }: RestaurantProps) {
   }
 
   return (
-    <div key={id}>
+    <div>
       <h2>{name}</h2>
       <h3>Menu</h3>
       <Menu menu={menu} />

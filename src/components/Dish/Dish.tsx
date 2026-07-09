@@ -1,32 +1,15 @@
-import { useState } from "react";
-
+import useDishCounter from "./useDishCounter";
 import Counter from "../Counter/Counter";
 
 import type { MenuItem } from "../types";
 
 type DishProps = { dish: MenuItem };
 
+const dishLimit = 5;
+
 export default function Dish({ dish }: DishProps) {
   const { id, name, price, ingredients } = dish;
-  const dishLimit = 5;
-
-  const [count, setCount] = useState(0);
-
-  const addDish = () => {
-    if (dishLimit !== undefined && count === dishLimit) {
-      return;
-    }
-
-    setCount(count + 1);
-  };
-
-  const removeDish = () => {
-    if (count === 0) {
-      return;
-    }
-
-    setCount(count - 1);
-  };
+  const { count, addDish, removeDish } = useDishCounter(dishLimit);
 
   if (!name) {
     return null;

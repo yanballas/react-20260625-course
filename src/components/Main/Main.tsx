@@ -21,7 +21,7 @@ export default function Main() {
         ))}
       </section>
       <section>
-        <Restaurant id={restaurantId} />
+        <Restaurant key={restaurantId} id={restaurantId} />
       </section>
     </main>
   );

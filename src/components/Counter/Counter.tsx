@@ -12,8 +12,8 @@ export default function Counter({
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
       <button
-        onClick={(event) => {
-          event.preventDefault();
+        type="button"
+        onClick={() => {
           onIncrement();
         }}
       >
@@ -21,8 +21,8 @@ export default function Counter({
       </button>
       <span>Count: {count}</span>
       <button
-        onClick={(event) => {
-          event.preventDefault();
+        type="button"
+        onClick={() => {
           onDecrement();
         }}
       >
