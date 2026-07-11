@@ -1,19 +1,11 @@
+import styles from "./header.module.css";
+
 export default function Header({ scrollY }: { scrollY: number }) {
   return (
-    <header>
-      <p
-        style={{
-          position: "fixed",
-          top: 0,
-          right: 0,
-          color: "red",
-          backgroundColor: "blue",
-        }}
-      >
-        Scroll Y: {scrollY}
-      </p>
-      <h3>Header</h3>
-      <p>
+    <header className={styles.header}>
+      <p className={styles["view-scroll-y"]}>Scroll Y: {scrollY}</p>
+      <h3 className={styles.xl}>Header</h3>
+      <p className={styles.s}>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit totam
         voluptatem in provident aliquam laboriosam dolores neque autem,
         blanditiis repudiandae voluptate asperiores earum, voluptatibus corporis

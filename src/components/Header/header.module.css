@@ -1,0 +1,20 @@
+.header {
+  padding: 10px;
+  background-color: green;
+}
+
+.view-scroll-y {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: red;
+  background-color: blue;
+}
+
+.xl {
+  font-size: 24px;
+}
+
+.s {
+  font-size: 12px;
+}

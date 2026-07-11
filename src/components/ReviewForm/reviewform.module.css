@@ -1,0 +1,7 @@
+.counter {
+  margin-block: 10px;
+}
+.buttons {
+  display: flex;
+  gap: 8px;
+}

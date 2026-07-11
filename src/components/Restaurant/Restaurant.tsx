@@ -3,6 +3,8 @@ import Review from "../Review/Review";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import { restaurants } from "../../mock/mock.ts";
 
+import styles from "./restaurant.module.css";
+
 interface RestaurantProps {
   id: string;
 }
@@ -23,14 +25,14 @@ function Restaurant({ id }: RestaurantProps) {
   }
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <h3>Menu</h3>
+    <>
+      <h2 className={styles.xl}>{name}</h2>
+      <h3 className={styles.l}>Menu</h3>
       <Menu menu={menu} />
-      <h3>Reviews</h3>
+      <h3 className={styles.m}>Reviews</h3>
       <Review reviews={reviews} />
       <ReviewForm />
-    </div>
+    </>
   );
 }
 

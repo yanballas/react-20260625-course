@@ -1,5 +1,6 @@
 import Counter from "../Counter/Counter";
 import useForm from "./useForm";
+import styles from "./reviewform.module.css";
 
 export default function ReviewForm() {
   const {
@@ -30,11 +31,14 @@ export default function ReviewForm() {
         count={state.rating}
         onIncrement={incrementRating}
         onDecrement={decrementRating}
+        className={styles.counter}
       />
-      <button type="submit" onClick={handleSubmit}>
-        Send
-      </button>
-      <button onClick={handleClear}>Clear</button>
+      <div className={styles.buttons}>
+        <button type="submit" onClick={handleSubmit}>
+          Send
+        </button>
+        <button onClick={handleClear}>Clear</button>
+      </div>
     </form>
   );
 }

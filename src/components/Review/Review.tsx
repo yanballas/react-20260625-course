@@ -1,5 +1,7 @@
 import type { Review } from "../types";
 
+import styles from "./review.module.css";
+
 type ReviewProps = { reviews: Review[] };
 
 export default function Review({ reviews }: ReviewProps) {
@@ -10,7 +12,7 @@ export default function Review({ reviews }: ReviewProps) {
   return (
     <ol>
       {reviews.map((review: Review) => (
-        <li key={review.id} style={{ marginBottom: "10px" }}>
+        <li key={review.id} className={styles.review}>
           <ul>
             <li>{review.user}</li>
             <li>{review.text}</li>
