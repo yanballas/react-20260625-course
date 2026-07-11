@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { restaurants } from "../../mock/mock";
+import { restaurants } from "../../mock/mock.ts";
 
 import Restaurant from "../Restaurant/Restaurant";
 

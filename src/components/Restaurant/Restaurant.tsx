@@ -1,7 +1,7 @@
 import Menu from "../Menu/Menu";
 import Review from "../Review/Review";
 import ReviewForm from "../ReviewForm/ReviewForm";
-import { restaurants } from "../../mock/mock";
+import { restaurants } from "../../mock/mock.ts";
 
 interface RestaurantProps {
   id: string;
