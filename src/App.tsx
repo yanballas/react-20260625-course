@@ -5,10 +5,12 @@ import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 
 import { lightTheme, ThemeContext } from "./context/theme.context";
+import { UserContext } from "./context/user.context";
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
   const [theme, setTheme] = useState(lightTheme);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,11 +27,13 @@ function App() {
 
   return (
     <>
-      <ThemeContext value={{ theme, setTheme }}>
-        <Header scrollY={scrollY} />
-        <Main />
-        <Footer />
-      </ThemeContext>
+      <UserContext value={{ user, setUser }}>
+        <ThemeContext value={{ theme, setTheme }}>
+          <Header scrollY={scrollY} />
+          <Main />
+          <Footer />
+        </ThemeContext>
+      </UserContext>
     </>
   );
 }

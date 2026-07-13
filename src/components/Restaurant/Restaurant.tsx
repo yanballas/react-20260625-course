@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import Menu from "../Menu/Menu";
 import Review from "../Review/Review";
 import ReviewForm from "../ReviewForm/ReviewForm";
 import { restaurants } from "../../mock/mock.ts";
+import { UserContext } from "../../context/user.context";
 
 import styles from "./restaurant.module.css";
 
@@ -13,6 +15,7 @@ function Restaurant({ id }: RestaurantProps) {
   const currentRestaurant = restaurants.find(
     (restaurant) => restaurant.id === id,
   );
+  const { user } = useContext(UserContext);
 
   if (!currentRestaurant) {
     return null;
@@ -31,7 +34,8 @@ function Restaurant({ id }: RestaurantProps) {
       <Menu menu={menu} />
       <h3 className={styles.m}>Reviews</h3>
       <Review reviews={reviews} />
-      <ReviewForm />
+
+      {user !== null ? <ReviewForm /> : null}
     </>
   );
 }

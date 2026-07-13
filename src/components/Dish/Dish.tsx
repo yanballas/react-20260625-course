@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import useDishCounter from "./useDishCounter";
 import Counter from "../Counter/Counter";
 import classNames from "classnames";
+import { UserContext } from "../../context/user.context";
 
 import type { MenuItem } from "../types";
 
@@ -13,6 +15,7 @@ const dishLimit = 5;
 export default function Dish({ dish, className }: DishProps) {
   const { id, name, price, ingredients } = dish;
   const { count, addDish, removeDish } = useDishCounter(dishLimit);
+  const { user } = useContext(UserContext);
 
   if (!name) {
     return null;
@@ -27,7 +30,9 @@ export default function Dish({ dish, className }: DishProps) {
           <li key={ingredient}>{ingredient}</li>
         ))}
       </ul>
-      <Counter count={count} onIncrement={addDish} onDecrement={removeDish} />
+      {user !== null ? (
+        <Counter count={count} onIncrement={addDish} onDecrement={removeDish} />
+      ) : null}
     </li>
   );
 }
