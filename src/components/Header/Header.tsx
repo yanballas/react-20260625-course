@@ -1,8 +1,23 @@
+import { useContext } from "react";
+import {
+  lightTheme,
+  darkTheme,
+  ThemeContext,
+} from "../../context/theme.context";
+
 import styles from "./header.module.css";
 
 export default function Header({ scrollY }: { scrollY: number }) {
+  const themeContext = useContext(ThemeContext);
+  const { theme, setTheme } = themeContext;
+
   return (
     <header className={styles.header}>
+      <button
+        onClick={() => setTheme(theme === lightTheme ? darkTheme : lightTheme)}
+      >
+        Switch Theme
+      </button>
       <p className={styles["view-scroll-y"]}>Scroll Y: {scrollY}</p>
       <h3 className={styles.xl}>Header</h3>
       <p className={styles.s}>
