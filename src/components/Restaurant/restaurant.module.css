@@ -1,0 +1,14 @@
+.xl {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.l {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.m {
+  font-size: 16px;
+  text-decoration: underline;
+}

@@ -55,6 +55,10 @@ export default function useForm() {
   };
 
   const incrementRating = () => {
+    if (state.rating === 5) {
+      return;
+    }
+
     dispatch({
       type: EFormActionType.ERating,
       payload: state.rating + 1,
