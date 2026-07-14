@@ -1,39 +1,13 @@
-import { useContext } from "react";
-import {
-  lightTheme,
-  darkTheme,
-  ThemeContext,
-} from "../../context/theme.context";
-import { UserContext } from "../../context/user.context";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import UserBar from "../UserBar/UserBar";
 
 import styles from "./header.module.css";
 
 export default function Header({ scrollY }: { scrollY: number }) {
-  const themeContext = useContext(ThemeContext);
-  const { theme, setTheme } = themeContext;
-
-  const userContext = useContext(UserContext);
-  const { user, setUser } = userContext;
-
   return (
     <header className={styles.header}>
-      <button
-        onClick={() => setTheme(theme === lightTheme ? darkTheme : lightTheme)}
-      >
-        Switch Theme
-      </button>
-
-      {user !== null ? (
-        <>
-          <span>Hi, {user.name}</span>
-          <button onClick={() => setUser(null)}>Log out</button>
-        </>
-      ) : (
-        <button onClick={() => setUser({ name: "Vasya Pupkin" })}>
-          Log in
-        </button>
-      )}
-
+      <ThemeSwitcher />
+      <UserBar />
       <p className={styles["view-scroll-y"]}>Scroll Y: {scrollY}</p>
       <h3 className={styles.xl}>Header</h3>
       <p className={styles.s}>
